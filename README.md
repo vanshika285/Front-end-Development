@@ -50,9 +50,9 @@ This project consists of an HTML document along with associated CSS and JavaScri
 - [2210997267]
 - [vanshika7269.ca22@chitkara.edu.in]
 
-## Version History
+## Submission date
 
-- v1.0 (Initial Release): [20-march-2024]
+- [20-march-2024]
 
 ## License
 
