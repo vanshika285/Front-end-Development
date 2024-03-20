@@ -46,13 +46,13 @@ This project consists of an HTML document along with associated CSS and JavaScri
 
 ## Author
 
-- [Your Name]
-- [Contact Information]
-- [GitHub Profile (if applicable)]
+- [VANSHIKA GARG]
+- [2210997267]
+- [vanshika7269.ca22@chitkara.edu.in]
 
 ## Version History
 
-- v1.0 (Initial Release): [Date]
+- v1.0 (Initial Release): [20-march-2024]
 
 ## License
 
