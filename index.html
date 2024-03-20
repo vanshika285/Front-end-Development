@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add to Cart(ASSIGNMENT)</title>
+<style>
+    /* Global styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .shop-item {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        width: 300px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .shop-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .shop-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .shop-item-details {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .shop-item-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .shop-item-price {
+        font-size: 20px;
+        font-weight: bold;
+        color: #4CAF50;
+        margin-bottom: 10px;
+    }
+
+    .add-to-cart-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover {
+        background-color: #45a049;
+    }
+
+    .cart {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .cart-item {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .cart-item button {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+    }
+
+    .cart-item button:hover {
+        background-color: #ff3333;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Shop items will be dynamically added here -->
+</div>
+
+<!-- Cart section -->
+<div class="cart" id="cart">
+    <h2>Cart</h2>
+    <ul id="cart-items">
+        <!-- Cart items will be displayed here -->
+    </ul>
+</div>
+
+<script>
+    // Function to add product to cart
+    function addToCart(productId, productName, productPrice) {
+        const cartItem = document.createElement('li');
+        cartItem.textContent = `${productName} - ${productPrice}`;
+        
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', () => removeFromCart(cartItem));
+        
+        cartItem.appendChild(removeButton);
+        document.getElementById('cart-items').appendChild(cartItem);
+    }
+    // Function to remove product from cart
+    function removeFromCart(cartItem) {
+        cartItem.remove();
+    }
+    // Add products
+    const products = [
+        { imgSrc: "https://www.alamodelabel.in/cdn/shop/products/WhatsAppImage2022-05-04at10.40.56PM_1_600x.jpg?v=1651694273", alt: "Tops     ", title: "Tops", price: "$9", productId: "1" },
+        { imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu7LnBAatQsO_ZBPXHw7uZqeBtiyuP9877R_w6siJcq2mGntyDVZtpZcV83Kixq96ei6k&usqp=CAU", alt: "T-shirt      ", title: "T-shirt", price: "$12", productId: "2" },
+        { imgSrc: "https://assets.ajio.com/medias/sys_master/root/20231010/R4fd/6525266eddf77915192fb5de/-288Wx360H-466691165-offwhite-MODEL.jpg", alt: "White Shirt", title: "White Shirt", price: "$14", productId: "3" },
+        { imgSrc: "https://assets.ajio.com/medias/sys_master/root/20230427/dFjN/644a92ba42f9e729d7553588/-473Wx593H-442042403-ltblue-MODEL.jpg", alt: "Jeans", title: "Jeans", price: "$14", productId: "4" },
+        { imgSrc: "https://assets.ajio.com/medias/sys_master/root/20230629/3fk1/649cafedeebac147fc2d44ef/-473Wx593H-465960612-teal-MODEL.jpg", alt: "Blue T-Shirt", title: "Blue T-Shirt", price: "$7", productId: "5" },
+        { imgSrc: "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg", alt: "Shirt", title: "Shirt", price: "$12", productId: "6" }
+    ];
+    // Create shop items
+    const container = document.querySelector('.container');
+    products.forEach(product => {
+        const shopItem = document.createElement('div');
+        shopItem.className = "shop-item";
+        
+        const shopItemImage = document.createElement('img');
+        shopItemImage.className = "img-responsive";
+        shopItemImage.src = product.imgSrc;
+        shopItemImage.alt = product.altText;
+        
+        const shopItemDetails = document.createElement('div');
+        shopItemDetails.className = "shop-item-details";
+        
+        const shopItemTitle = document.createElement('span');
+        shopItemTitle.className = "shop-item-title";
+        shopItemTitle.textContent = product.title;
+        
+        const shopItemPrice = document.createElement('span');
+        shopItemPrice.className = "shop-item-price";
+        shopItemPrice.textContent = product.price;
+        
+        const addToCartBtn = document.createElement('button');
+        addToCartBtn.className = "add-to-cart-btn";
+        addToCartBtn.textContent = "Add to Cart";
+        addToCartBtn.setAttribute('data-product-id', product.productId);
+        addToCartBtn.setAttribute('data-product-name', product.title);
+        addToCartBtn.setAttribute('data-product-price', product.price);
+        addToCartBtn.addEventListener('click', () => {
+            addToCart(product.productId, product.title, product.price);
+        });
+        shopItemDetails.appendChild(shopItemTitle);
+        shopItemDetails.appendChild(shopItemPrice);
+        shopItemDetails.appendChild(addToCartBtn);
+        
+        shopItem.appendChild(shopItemImage);
+        shopItem.appendChild(shopItemDetails);
+
+        container.appendChild(shopItem);
+    });
+</script>
+</body>
+</html>
