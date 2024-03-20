@@ -7,6 +7,8 @@ By -Vanshika Garg (2210997267)
 
 This project consists of an HTML document along with associated CSS and JavaScript files that create a basic shopping website. Users can view products, add them to their cart, and remove items from the cart. The styling enhances the visual appeal and user experience of the webpage.
 
+![FIRST IMAGE](images/IMG-20240318-WA0009.jpg)
+
 ## Usage
 
 1. **Viewing Products:**
