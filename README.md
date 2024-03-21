@@ -53,7 +53,7 @@ This project consists of an HTML document along with associated CSS and JavaScri
 
 - [VANSHIKA GARG]
 - [2210997267]
-- [vanshika7269.ca22@chitkara.edu.in]
+- [vanshika7267.ca22@chitkara.edu.in]
 
 ## Submission date
 
